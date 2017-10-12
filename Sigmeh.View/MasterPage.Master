@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Sigmeh.View.MasterPage" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %></title>    
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.5.3.js") %>"></script>
+    </asp:PlaceHolder>
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />  
+    <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
+        <script type="text/javascript">
+            var sessionTimeout = "<%= Session.Timeout %>";      
+            var seconds = sessionTimeout * 60;                      
+            function secondPassed() {
+                var minutes = Math.round((seconds - 30) / 60);
+                var remainingSeconds = seconds % 60;
+                if (remainingSeconds < 10) {
+                    remainingSeconds = "0" + remainingSeconds;
+                }
+                document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+                if (seconds == 0) {
+                    clearInterval(countdownTimer);
+                    document.getElementById('countdown').innerHTML = "Sessão expirada";
+                } else {
+                    seconds--;
+                }
+            }
+            var countdownTimer = setInterval('secondPassed()', 1000);
+        </script>
+    </telerik:RadScriptBlock>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="jquery.ui.combined" />
+            </Scripts>
+        </asp:ScriptManager>                      
+        <header>
+            <div>
+                <table width="100%">
+                    <tr style="vertical-align: top;">
+                        <td style="text-align: left;" rowspan="2">
+                            <telerik:RadMenu ID="menuPrincipal" runat="server">
+                                <Items>
+                                    <telerik:RadMenuItem runat="server" Text="Inicio" NavigateUrl="Dashboard.aspx">
+                                        <Items>
+                                            <telerik:RadMenuItem runat="server" Text="Listagem">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Dashboard" NavigateUrl="Dashboard.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Registro de manutenção de equipamento" NavigateUrl="RMELis.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Equipamento" NavigateUrl="EquipamentoLis.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Hospitais/Funcionários" NavigateUrl="EntidadeLis.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipo de equipamento" NavigateUrl="EquipamentoTipoMan.aspx">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Cadastro">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Registro de manutenção de equipamento" NavigateUrl="RMECad.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Equipamento" NavigateUrl="EquipamentoCad.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Hospitais/Funcionários" NavigateUrl="EntidadeCad.aspx">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipo de equipamento" NavigateUrl="EquipamentoTipoMan.aspx">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                </Items>
+                            </telerik:RadMenu>
+                        </td>
+                        <td style="text-align: center;" rowspan="2">
+                            <p class="site-title"><a href="~/">SIGMEH</a></p>
+                        </td>                        
+                        <td style="text-align: right;">EMPRESA:&nbsp;<telerik:RadComboBox runat="server" ID="ddlEmpresa" AutoPostBack="true"
+                            Width="300px" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" Localization-AllItemsCheckedString="Todas" Localization-CheckAllString="Selecionar Todas"
+                            CausesValidation="false" DataValueField="EntidadeID" DataTextField="Nome">
+                        </telerik:RadComboBox>
+                            <asp:LinkButton ID="btnUsuario" runat="server" OnClick="btnUsuario_Click"></asp:LinkButton>&nbsp;|&nbsp;
+                            <asp:LinkButton ID="btnSairSistema" runat="server" OnClick="btnSairSistema_Click">Sair</asp:LinkButton>
+                            &nbsp;</td>
+                    </tr>
+                    <tr style="vertical-align: top;">
+                        <td style="text-align: right;">Sessão expira em:&nbsp;<span id="countdown" class="timer"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </header>
+        <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanelMain" runat="server" Skin="Metro" Transparency="95"></telerik:RadAjaxLoadingPanel>
+        <telerik:RadAjaxManager ID="RadAjaxManagerMain" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanelMain" />
+        <telerik:RadNotification ID="ntfMaster" runat="server">
+        </telerik:RadNotification>
+        <table width="100%">
+            <tr>
+                <td width="10%"></td>
+                <td width="80%">
+                    <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </td>
+                <td width="10%"></td>
+            </tr>
+        </table>
+        <footer style="text-align: center; vertical-align: bottom;">
+            <p>&copy; <%: DateTime.Now.Year %> - Sigmeh - Sistema gestor para manutenção de equipamentos hospitalares</p>
+            <p>Innobox |Todos os direitos reservados|</p>
+        </footer>
+    </form>
+</body>
+</html>

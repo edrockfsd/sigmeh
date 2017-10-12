@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigmeh.View", "Sigmeh.View\Sigmeh.View.csproj", "{0B485C7E-91D5-4204-8E76-FC16E05B9ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigmeh.Model", "Sigmeh.Model\Sigmeh.Model.csproj", "{70895024-3DA5-48BF-9EDC-01C34063C9DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigmeh.Framework", "Sigmeh.Framework\Sigmeh.Framework.csproj", "{09032A57-A16D-425C-862C-2F82BE813C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigmeh.Repository", "Sigmeh.Repository\Sigmeh.Repository.csproj", "{6D4C7EAD-5205-4DEB-8E72-AE1563E3A833}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://sigmeh.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sigmeh.View\\Sigmeh.View.csproj
+		SccProjectName1 = Sigmeh.View
+		SccLocalPath1 = Sigmeh.View
+		SccProjectUniqueName2 = Sigmeh.Model\\Sigmeh.Model.csproj
+		SccProjectName2 = Sigmeh.Model
+		SccLocalPath2 = Sigmeh.Model
+		SccProjectUniqueName3 = Sigmeh.Framework\\Sigmeh.Framework.csproj
+		SccProjectName3 = Sigmeh.Framework
+		SccLocalPath3 = Sigmeh.Framework
+		SccProjectUniqueName4 = Sigmeh.Repository\\Sigmeh.Repository.csproj
+		SccProjectName4 = Sigmeh.Repository
+		SccLocalPath4 = Sigmeh.Repository
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B485C7E-91D5-4204-8E76-FC16E05B9ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B485C7E-91D5-4204-8E76-FC16E05B9ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B485C7E-91D5-4204-8E76-FC16E05B9ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B485C7E-91D5-4204-8E76-FC16E05B9ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70895024-3DA5-48BF-9EDC-01C34063C9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70895024-3DA5-48BF-9EDC-01C34063C9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70895024-3DA5-48BF-9EDC-01C34063C9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70895024-3DA5-48BF-9EDC-01C34063C9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09032A57-A16D-425C-862C-2F82BE813C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09032A57-A16D-425C-862C-2F82BE813C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09032A57-A16D-425C-862C-2F82BE813C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09032A57-A16D-425C-862C-2F82BE813C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D4C7EAD-5205-4DEB-8E72-AE1563E3A833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D4C7EAD-5205-4DEB-8E72-AE1563E3A833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D4C7EAD-5205-4DEB-8E72-AE1563E3A833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D4C7EAD-5205-4DEB-8E72-AE1563E3A833}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
